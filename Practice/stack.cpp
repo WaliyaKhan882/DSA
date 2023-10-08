@@ -11,8 +11,8 @@ int insert_stack(int *stack, int value, int top)
 }
 int remove_stack(int *stack, int top)
 {
-    cout << stack[top] << endl;
     top--;
+    cout << stack[top] << endl;
     cout << "value popped out" << endl;
     return top;
 }
