@@ -1,33 +1,29 @@
 #include <iostream>
+#include <cstring>
 using namespace std;
 
-int insert_stack(char *stack, char value, int &top, int size)
+void insert_stack(char *stack, char value, int &top, int size)
 {
     int retvalue;
     if (top < size)
     {
         stack[top++]=value;
-        retvalue = 1;
     }
     else
     {
-        retvalue = 0;
+        cout<<"stack is full"<<endl;
     }
-    return retvalue;
 }
-int remove_stack(char *stack, int &top)
+void remove_stack(char *stack, int &top)
 {
-    int retvalue;
     if (top > 0)
     {
         cout << stack[--top] << endl;
-        retvalue = 1;
     }
     else
     {
-        retvalue = 0;
+        cout<<"stack is empty"<<endl;
     }
-    return retvalue;
 }
 void traverse_stack(char *stack, int top)
 {
@@ -47,25 +43,17 @@ int main()
     while (1)
     {
         cout << "enter 1 for insertion in stack || 2 for removing from stack || 3 for printing stack || 0 to quit program" << endl;
-        int option, indicator = 0, result;
+        int option, indicator = 0;
         cin >> option;
         switch (option)
         {
         case 1:
             cout << "enter value to be inserted" << endl;
             cin >> value;
-            result = insert_stack(stk, value, top, size);
-            if (result == 0)
-            {
-                cout << "stack is full" << endl;
-            }
+            insert_stack(stk, value, top, size);
             break;
         case 2:
-            result = remove_stack(stk, top);
-            if (result == 0)
-            {
-                cout << "stack underflow" << endl;
-            }
+            remove_stack(stk, top);
             break;
         case 3:
             traverse_stack(stk, top);
